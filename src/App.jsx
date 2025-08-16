@@ -6,14 +6,14 @@ export default function App() {
   const [newTodo, setNewTodo] = useState('');
 
   useEffect(() => {
-    fetch('/api/todos')
+    fetch('https://todoreact-sgsu.onrender.com/api/todos')
       .then(res => res.json())
       .then(data => setTodos(data));
   }, []);
 
   const addTodo = async () => {
     if (!newTodo.trim()) return;
-    const res = await fetch('/api/todos', {
+    const res = await fetch('https://todoreact-sgsu.onrender.com/api/todos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: newTodo })
@@ -28,7 +28,7 @@ export default function App() {
   // .catch(err => console.error(err));
 
   const toggleTodo = async (id, completed) => {
-    const res = await fetch(`/api/todos/${id}`, {
+    const res = await fetch(`https://todoreact-sgsu.onrender.com/api/todos/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ completed: !completed })
@@ -38,7 +38,7 @@ export default function App() {
   };
 
   const deleteTodo = async (id) => {
-    await fetch(`/api/todos/${id}`, { method: 'DELETE' });
+    await fetch(`https://todoreact-sgsu.onrender.com/api/todos/${id}`, { method: 'DELETE' });
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
