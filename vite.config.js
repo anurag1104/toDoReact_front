@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://todoreact-sgsu.onrender.com/',
+        target: 'https://todoreact-sgsu.onrender.com/api/todos',
         changeOrigin: true
       }
     }
