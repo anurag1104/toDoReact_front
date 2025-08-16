@@ -16,7 +16,7 @@ export default function App() {
     const res = await fetch('https://todoreact-sgsu.onrender.com/api/todos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: newTodo })
+      body: JSON.stringify({ task: newTodo })
     });
     const data = await res.json();
     setTodos([...todos, data]);
@@ -73,7 +73,7 @@ export default function App() {
                 className={`cursor-pointer ${todo.completed ? 'line-through text-gray-400' : ''}`}
                 onClick={() => toggleTodo(todo.id, todo.completed)}
               >
-                {todo.text}
+                {todo.task}
               </span>
               <button
                 onClick={() => deleteTodo(todo.id)}
